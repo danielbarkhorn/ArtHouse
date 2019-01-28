@@ -4,10 +4,9 @@
 
 .artwork-container {
   height: 600px;
-  width: 600px;
 }
 
 .artwork-container__artwork {
-
+  height: 100%;
 }
 
