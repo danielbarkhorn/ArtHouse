@@ -1,0 +1,9 @@
+{
+	"name": "ArtHouse",
+	"version": "0.0",
+	"description": "Artwork extension",
+	"manifest_version": 2,
+	"chrome_url_overrides": {
+		"newtab": "override/newtab.html"
+	}
+}
