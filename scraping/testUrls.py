@@ -2,21 +2,29 @@ import scrapy
 
 class ArtSpider(scrapy.Spider):
     name = 'art'
+    pageNum = 1
     start_urls = [
-        'https://www.artic.edu/artworks/41033/the-unwelcome-hints-of-mr-shepherd-his-agent-chapter-i-frontispiece-for-jane-austen-s-persuasion?sort_by=title&is_public_domain=1',
+        'https://www.artic.edu/search/artworks?page=' + str(pageNum),
     ]
 
-
     def parse(self, response):
-        title = response.css('span.o-article__inline-header-title::text').get()
-        link = response.css('button::attr("data-gallery-img-download-url")').get()
+        for listing in response.css('li.m-listing'):
+            title = listing.css('strong.title::text').get()
+            link = listing.css('a.m-listing__link::attr("href")').get()
+            author = listing.css('span.subtitle::text').get()
+            imgLink = listing.css('span.m-listing__img').css('img::attr("data-iiifid")').get()
 
-        yield {
-            'title': title,
-            'author':
-            'link': link,
-        }
+            yield {
+                'title': title,
+                'link': link,
+                'author': author,
+                'imgLink': imgLink,
+            }
 
-        next_page = response.css('a.m-article-header__img-nav-artwork-preview::attr("href")').get()
-        print('\n\n\n\n\n\n\n\n' + link + '\n\n\n\n\n\n\n\n')
+        self.pageNum += 1
+        next_page = self.start_urls[0] + str(self.pageNum)
+
         yield response.follow(next_page, self.parse)
+
+    # def parseListing(self, response):
+    #     links = response.css("div.m-article-header__img-container")
