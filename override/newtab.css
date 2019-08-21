@@ -2,11 +2,39 @@
   background-color: #F3F3F3;
 }
 
+body {
+  margin: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .artwork-container {
-  height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 85%;
 }
 
 .artwork-container__artwork {
-  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: calc(100% - 68px);
 }
 
+.artwork-container__title {
+  font-size: 18px;
+  padding: 8px 0px;
+}
+
+.artwork-container__subtitle {
+  font-size: 12px;
+  padding: 8px 0px;
+}
