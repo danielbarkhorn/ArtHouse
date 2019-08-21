@@ -2,7 +2,13 @@
   background-color: #F3F3F3;
 }
 
+@font-face {
+  font-family: delia;
+  src: url(deliaRegular.otf);
+}
+
 body {
+  font-family: delia;
   margin: 0;
   position: absolute;
   height: 100%;
@@ -30,11 +36,11 @@ body {
 }
 
 .artwork-container__title {
-  font-size: 18px;
-  padding: 8px 0px;
+  font-size: 24px;
+  padding: 6px 0px;
 }
 
 .artwork-container__subtitle {
-  font-size: 12px;
-  padding: 8px 0px;
+  font-size: 18px;
+  padding: 6px 0px;
 }

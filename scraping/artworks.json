@@ -1,4 +1,4 @@
-var art = [
+[
 {"title": "A Sunday on La Grande Jatte \u2014 1884, 1884/86", "link": "https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884?page=1", "imgLink": "https://www.artic.edu/iiif/2/88d65792-afb3-c90b-56d7-6f95967fa731", "author": "Georges Seurat"},
 {"title": "Nighthawks, 1942", "link": "https://www.artic.edu/artworks/111628/nighthawks?page=1", "imgLink": "https://www.artic.edu/iiif/2/39d43108-e690-2705-67e2-a16dc28b8c7f", "author": "Edward Hopper"},
 {"title": "American Gothic, 1930", "link": "https://www.artic.edu/artworks/6565/american-gothic?page=1", "imgLink": "https://www.artic.edu/iiif/2/d02e0079-8e82-733e-683c-cb83a387ee5e", "author": "Grant Wood"},
@@ -1980,17 +1980,3 @@ var art = [
 {"title": "Ruined Archway, 1775/93", "link": "https://www.artic.edu/artworks/16376/ruined-archway?page=199", "imgLink": "https://www.artic.edu/iiif/2/1a11b55e-5ba4-6cb8-ed5f-3aef48e28e32", "author": "Francesco Guardi"},
 {"title": "Two Figures (Menhirs), c. 1954/55", "link": "https://www.artic.edu/artworks/65839/two-figures-menhirs?page=199", "imgLink": "https://www.artic.edu/iiif/2/73396f5a-63e4-acf8-0f35-fe50d060672b", "author": "Barbara Hepworth"}
 ]
-
-function artworkSelector(){
-	var numArtPieces = 1242;
-	var index = parseInt(Math.random() * numArtPieces);
-	var height = parseInt(window.innerHeight * 1.25).toString();
-	var linkEnding = "/full/".concat(height, ",/0/default.jpg");
-	var imgLink = art[index].imgLink.concat(linkEnding);
-
-	document.getElementsByClassName('artwork-container__artwork')[0].src = imgLink;
-	document.getElementsByClassName('artwork-container__title')[0].innerHTML = art[index].title;
-	document.getElementsByClassName('artwork-container__subtitle')[0].innerHTML = art[index].author;
-}
-
-artworkSelector();
