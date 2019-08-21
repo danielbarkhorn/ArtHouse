@@ -1989,6 +1989,7 @@ function artworkSelector(){
 	var imgLink = art[index].imgLink.concat(linkEnding);
 
 	document.getElementsByClassName('artwork-container__artwork')[0].src = imgLink;
+	document.getElementsByClassName('artwork-container__title')[0].href = art[index].link;
 	document.getElementsByClassName('artwork-container__title')[0].innerHTML = art[index].title;
 	document.getElementsByClassName('artwork-container__subtitle')[0].innerHTML = art[index].author;
 }
