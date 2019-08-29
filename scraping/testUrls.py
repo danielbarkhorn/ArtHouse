@@ -2,9 +2,10 @@ import scrapy
 
 class ArtSpider(scrapy.Spider):
     name = 'art'
-    pageNum = 1
+    pageNum = 200
     start_urls = [
-        'https://www.artic.edu/search/artworks?page=' + str(pageNum),
+        'https://www.artic.edu/search/artworks?page=200',
+        'https://www.artic.edu/search/artworks?page=',
     ]
 
     def parse(self, response):
@@ -22,9 +23,6 @@ class ArtSpider(scrapy.Spider):
             }
 
         self.pageNum += 1
-        next_page = self.start_urls[0] + str(self.pageNum)
+        next_page = self.start_urls[1] + str(self.pageNum)
 
         yield response.follow(next_page, self.parse)
-
-    # def parseListing(self, response):
-    #     links = response.css("div.m-article-header__img-container")
