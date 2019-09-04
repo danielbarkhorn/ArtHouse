@@ -13,10 +13,9 @@ function toDataURL(url, callback) {
 }
 
 function randomArtwork(){
-	var numArtPieces = 8020;
+	var numArtPieces = 8018;
 	var index = parseInt(Math.random() * numArtPieces);
-	var height = parseInt(window.innerHeight * 1.25).toString();
-	var linkEnding = "/full/".concat(height, ",/0/default.jpg");
+	var linkEnding = "/full/1000,/0/default.jpg";
 	var imgLink = art[index].imgLink.concat(linkEnding);
 
 	return {
@@ -27,7 +26,7 @@ function randomArtwork(){
 	};
 }
 
-function updateStorage(imgIndex){
+function updateStorage(imgIndex, callback){
 	var newArt = randomArtwork();
 	var [
 		imgLinkInd,
@@ -40,6 +39,7 @@ function updateStorage(imgIndex){
 		'title' + imgIndex,
 		'author' + imgIndex
 	];
+  chrome.storage.local.set({[imgIndex]: false});
 	toDataURL(
 	  newArt.imgLink,
 	  function(dataUrl) {
@@ -50,18 +50,45 @@ function updateStorage(imgIndex){
 				[authorInd]: newArt.author
 			};
 			chrome.storage.local.set(toStore, function() {
-				console.log('Set!');
+        chrome.storage.local.set({[imgIndex]: true}, function() {
+          if(callback) callback();
+        });
 			});
 		}
 	)
 }
 
 chrome.runtime.onStartup.addListener(function() {
-	chrome.storage.local.set({'imgMod':0});
+	chrome.storage.local.set({'imgMod':'-1'}, function() {
+    updateStorage('0', function() {
+      updateStorage('1', function() {
+        updateStorage('2', function() {
+          updateStorage('3', function() {
+            updateStorage('4');
+          });
+        });
+      });
+    });
+  });
+});
 
-	updateStorage('0');
-	updateStorage('1');
-	updateStorage('2');
-	updateStorage('3');
-	updateStorage('4');
+chrome.runtime.onInstalled.addListener(function() {
+	chrome.storage.local.set({'imgMod':'-1'});
+	// updateStorage('0', function() {
+  //   updateStorage('1', function() {
+  //     updateStorage('3', function() {
+  //       updateStorage('4');
+  //     });
+  //   });
+  // });
+});
+
+chrome.tabs.onCreated.addListener(function() {
+  chrome.storage.local.get('imgMod', function(result) {
+  	var imgMod = parseInt(result['imgMod']);
+    updateStorage(((imgMod + 4) % 5).toString());
+    chrome.storage.local.set({'imgMod': ((imgMod + 1) % 5)}, function() {
+      console.log('Successfullllll');
+    });
+  });
 });

@@ -35,6 +35,10 @@ body {
   max-height: calc(100% - 68px);
 }
 
+.artwork-container__info {
+  display: block;
+}
+
 .artwork-container__title {
   font-size: 24px;
   padding: 6px 0px;
