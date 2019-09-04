@@ -2,11 +2,54 @@
   background-color: #F3F3F3;
 }
 
+@font-face {
+  font-family: delia;
+  src: url(deliaRegular.otf);
+}
+
+body {
+  font-family: delia;
+  margin: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .artwork-container {
-  height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 85%;
 }
 
 .artwork-container__artwork {
-  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: calc(100% - 68px);
 }
 
+.artwork-container__info {
+  display: block;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.artwork-container__title {
+  font-size: 24px;
+  padding: 6px 0px;
+  color: black;
+  text-decoration: none;
+}
+
+.artwork-container__subtitle {
+  font-size: 18px;
+  padding: 6px 0px;
+  margin: 0;
+}

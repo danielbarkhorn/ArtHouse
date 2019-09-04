@@ -1,9 +1,22 @@
 {
 	"name": "ArtHouse",
-	"version": "0.0",
-	"description": "Artwork extension",
+	"version": "1.0",
+	"description": "Arty tabs",
 	"manifest_version": 2,
+	"background": {
+    "persistent": false,
+    "scripts": ["override/art.js", "override/background.js"]
+  },
 	"chrome_url_overrides": {
 		"newtab": "override/newtab.html"
+	},
+	"permissions": [
+    "storage",
+		"unlimitedStorage",
+		"https://www.artic.edu/iiif"
+  ],
+	"colors" : {
+    "background_tab_inactive": [243, 243, 243],
+		"background_tab": [243, 243, 243]
 	}
 }
