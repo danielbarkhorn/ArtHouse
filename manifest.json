@@ -14,9 +14,5 @@
     "storage",
 		"unlimitedStorage",
 		"https://www.artic.edu/iiif"
-  ],
-	"colors" : {
-    "background_tab_inactive": [243, 243, 243],
-		"background_tab": [243, 243, 243]
-	}
+  ]
 }
