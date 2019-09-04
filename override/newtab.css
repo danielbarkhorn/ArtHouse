@@ -37,6 +37,8 @@ body {
 
 .artwork-container__info {
   display: block;
+  text-align: center;
+  padding: 12px 0;
 }
 
 .artwork-container__title {
@@ -49,4 +51,5 @@ body {
 .artwork-container__subtitle {
   font-size: 18px;
   padding: 6px 0px;
+  margin: 0;
 }
