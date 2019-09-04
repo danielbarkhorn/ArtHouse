@@ -4,5 +4,5 @@ Development instructions:
   - In chrome Visit `chrome://extensions/`
   - Switch on 'Developer Mode' (top right corner)
   - Choose 'Load unpacked' (top left corner)
-  - Open Arthouse Directory
+  - Open unzipped Arthouse folder
   - Create new tab
