@@ -59,7 +59,7 @@ function updateStorage(imgIndex, callback){
 }
 
 chrome.runtime.onStartup.addListener(function() {
-	chrome.storage.local.set({'imgMod':'-1'}, function() {
+	chrome.storage.local.set({'imgMod':'0'}, function() {
     updateStorage('0', function() {
       updateStorage('1', function() {
         updateStorage('2', function() {
@@ -73,14 +73,17 @@ chrome.runtime.onStartup.addListener(function() {
 });
 
 chrome.runtime.onInstalled.addListener(function() {
-	chrome.storage.local.set({'imgMod':'-1'});
-	// updateStorage('0', function() {
-  //   updateStorage('1', function() {
-  //     updateStorage('3', function() {
-  //       updateStorage('4');
-  //     });
-  //   });
-  // });
+	chrome.storage.local.set({'imgMod':'0'}, function() {
+    updateStorage('0', function() {
+      updateStorage('1', function() {
+        updateStorage('2', function() {
+          updateStorage('3', function() {
+            updateStorage('4');
+          });
+        });
+      });
+    });
+  });
 });
 
 chrome.tabs.onCreated.addListener(function() {
