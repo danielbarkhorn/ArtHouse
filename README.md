@@ -1,5 +1,8 @@
 # ArtHouse
 
+Chrome Extension which gives you a new piece of artwork whenever you open a new tab
+
+
 Development instructions:
   - In chrome Visit `chrome://extensions/`
   - Switch on 'Developer Mode' (top right corner)
