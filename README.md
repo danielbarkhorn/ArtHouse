@@ -2,6 +2,7 @@
 
 Chrome Extension which gives you a new piece of artwork whenever you open a new tab
 
+![alt text](https://github.com/danielbarkhorn/ArtHouse/blob/master/example.png)
 
 Development instructions:
   - In chrome Visit `chrome://extensions/`
